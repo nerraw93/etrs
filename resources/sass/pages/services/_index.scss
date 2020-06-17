@@ -1,0 +1,33 @@
+@import '../../variables';
+
+.services {
+  width: 100%;
+  background: $body-bg;
+
+  section .main-container {
+    padding-left: 1.95rem;
+    padding-right: 1.95rem;
+  }
+
+  .no-left-padding {
+    padding-left: 0;
+  }
+
+  .page-content {
+    padding: 30px;
+    min-height: 500px;
+    margin-bottom: 15px;
+    background: #fff;
+  }
+
+  hr {
+    background-color: #e7ecf1;
+  }
+
+  /**
+   * Workaround because anchor immediately inherits default font-family which is not ideal
+   */
+  a {
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  }
+}

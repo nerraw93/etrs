@@ -1,0 +1,60 @@
+
+// Body
+$body-bg: #2f373e;
+
+// Typography
+$font-family-sans-serif: "Oswald", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #3bbb8f;;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
+// custom
+$primary: #32c5d2;
+$btn-primary-color: #32c5d2;
+
+.app-primary {
+  background-color: $primary;
+  color: #fff !important;
+}
+
+.app-text-primary {
+  color: $primary !important;
+}
+
+.portlet {
+  border: 1px solid #e7ecf1;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: $primary;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: $primary;
+}
+
+.header-portlet {
+  border-bottom: 1px solid #eef1f5;
+  height: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.pointer {
+  cursor: pointer
+}
+
+//** Modify bulma variables!
+$modal-card-head-background-color: $primary;

@@ -1,0 +1,30 @@
+@import '../../variables';
+
+.service-details {
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $body-bg;
+
+  section .main-container {
+    padding-left: 1.95rem;
+    padding-right: 1.95rem;
+  }
+
+  .no-left-padding {
+    padding-left: 0;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .page-content {
+    padding: 30px;
+    min-height: 500px;
+    margin-bottom: 15px;
+    background: #fff;
+  }
+}

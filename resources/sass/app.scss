@@ -1,0 +1,53 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+// Variables
+@import 'variables';
+
+$btn-primary: $primary;
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.btn-custom {
+  color: #fff
+}
+
+// Bulma
+
+@import '~bulma/sass/utilities/_all';
+
+
+@import "utilities";
+@import "mixins";
+
+// Components
+@import "components/footer";
+@import "global_components";
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font-size: 14px;
+  font-family: 'Oswald', sans-serif !important;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.announcement > .dropdown-menu {
+  margin-top: 10px;
+}
+.announcement > .dropdown-menu,
+.announcement > .dropdown-menu > .dropdown-content {
+	padding: 0;
+	background: #242b31;
+}

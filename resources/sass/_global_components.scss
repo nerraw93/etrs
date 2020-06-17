@@ -1,0 +1,60 @@
+// Modal
+.modal {
+    .modal-card {
+        &.is-wider {
+            width: 90%;
+        }
+
+        &.is-longer {
+            height: 90%;
+        }
+
+        .modal-card-head {
+            background-color: $green !important;
+        }
+
+        .modal-card-foot {
+            justify-content: flex-end;
+        }
+    }
+
+    .modal-card-body {
+        .modal-actions {
+            text-align: right;
+        }
+    }
+}
+
+.update-modal {
+    .daterangepicker.ltr .ranges {
+        display: none;
+    }
+}
+
+.notices {
+    .media-content {
+        white-space: pre;
+    }
+}
+
+.button[disabled] {
+    &.app-primary {
+        background-color: $btn-primary-color;
+    }
+}
+
+.topbar-actions {
+    .dropdown-menu {
+        padding-top: 0px;
+        padding-bottom: 0px;
+
+        .dropdown-content {
+            .dropdown-item {
+                &:hover {
+                    background-color: #32c5d2;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

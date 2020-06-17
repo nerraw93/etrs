@@ -1,0 +1,47 @@
+body {
+    
+    .container {
+        padding: 30px;
+        border: 1px solid black;
+
+        .column {
+            margin-bottom: 15px;
+        }
+
+        .is-full {
+            width: 100%;
+        }
+    }
+
+    .has-text-centered {
+        text-align: center !important;
+    }
+
+    .has-text-right {
+        text-align: right;
+    }
+
+    .has-text-left {
+        text-align: left;
+    }
+
+    .mb-lg {
+        margin-bottom: 30px !important;
+    }
+
+    .mb-md {
+        margin-bottom: 20px !important;
+    }
+
+    .mb-sm {
+        margin-bottom: 15px !important;
+    }
+
+    .hr {
+        border: 1px solid black;
+        margin-bottom: 15px;
+        &.dotted {
+            border-style: dotted;
+        }
+    }
+}

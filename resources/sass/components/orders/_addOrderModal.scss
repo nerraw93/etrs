@@ -1,0 +1,101 @@
+@import '../../variables';
+
+.add-order-modal {
+  overflow: scroll;
+  
+  .available-tests {
+    height: 250px;
+    overflow-y: scroll;
+  }
+
+  hr {
+    margin-top: 0;
+  }
+
+  .custom-width {
+    width: 500px;
+  }
+
+  header.modal-card-head {
+    background: $green;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .modal-actions {
+    width: 100%;
+  }
+
+  footer.modal-card-foot {
+    padding: 10px;
+  }
+
+  .no-top-padding {
+    padding-top: 0;
+  }
+
+  .modal-card-body {
+    width: 960px;
+  }
+
+  .modal-background {
+    background-color: none !important;
+  }
+
+  .autocomplete {
+    position: relative;
+
+    > .search-field {
+      position: relative;
+      > .close-icon {
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        right: 10px;
+        top: 8px;
+        background: #4a4a4a;
+        border-radius: 15px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > span {
+          color: #fff;
+          height: 15px;
+          width: 15px;
+        }
+      }
+    }
+
+    .autocomplete-results {
+      padding: 0;
+      margin: 0;
+      border: 1px solid #eeeeee;
+      height: auto;
+      max-height: 120px;
+      overflow: auto;
+      position: absolute;
+      width: 100%;
+      background: #fff;
+    }
+
+    .autocomplete-result {
+      list-style: none;
+      text-align: left;
+      padding: 4px 2px;
+      cursor: pointer;
+    }
+
+    .autocomplete-result:hover {
+      background-color: #4AAE9B;
+      color: white;
+    }
+  }
+
+  .patient-order-form {
+    margin-top: 10px;
+  }
+}

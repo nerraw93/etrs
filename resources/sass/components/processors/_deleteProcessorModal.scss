@@ -1,0 +1,15 @@
+@import '../../variables';
+
+.delete-modal {
+  header.modal-card-head {
+    background: $green;
+  }
+
+  .modal-actions {
+    width: 100%;
+  }
+
+  footer.modal-card-foot {
+    padding: 0;
+  }
+}

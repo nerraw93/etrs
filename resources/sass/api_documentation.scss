@@ -1,0 +1,93 @@
+@import '~bulma/bulma';
+@import '~bulma-accordion/src/sass/index.sass';
+
+.accordions {
+    .accordion {
+        .accordion-body {
+            .accordion-content {
+                padding: 0px !important;
+
+                .list {
+                    .list-item {
+                        padding-left: 30px;
+                        &.is-file {
+                            color: $info;
+                        }
+
+                        &.is-active {
+                            background-color: lightblue;
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+
+        .accordion-header {
+            background-color: transparent;
+            color: black;
+            &.is-file {
+                color: $info;
+            }
+
+            &.is-active {
+                background-color: lightblue;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+}
+
+.is-file {
+    color: $info;
+}
+
+.is-folder {
+    color: black;
+}
+
+.sub-directories {
+    padding-left: 10px;
+}
+
+.api-content {
+    background-color: whitesmoke;
+    padding: 15px;
+    border-radius: 5px;
+
+    h1 {
+        font-size: $size-4;
+    }
+
+    h2 {
+        font-size: $size-5;
+    }
+
+    h3 {
+        font-size: $size-6;
+    }
+
+    h5 {
+        font-size: $size-7;
+    }
+
+    a, p, h4, li, pre, code {
+        font-size: $size-6;
+    }
+
+    pre {
+        background-color: lightgray;
+    }
+
+    blockquote {
+        border-left-color: $primary;
+        background-color: #e6f2ff;
+    }
+}
