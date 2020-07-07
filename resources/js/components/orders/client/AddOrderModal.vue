@@ -230,6 +230,7 @@
 
     <add-patient-modal
       :open="isShowModal"
+      @new_patient="newlyAddedPatient"
       @close="isShowModal = false"
     />
   </b-modal>
@@ -296,6 +297,10 @@ export default {
     },
 
     methods: {
+        newlyAddedPatient(data) {
+          this.search = `${data.last_name}, ${data.first_name}`
+          this.selectedPatient = data
+        },
         addNewClinician(event) {
             if (event === "add") {
                 this.$emit('close')

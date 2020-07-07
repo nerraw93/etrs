@@ -460,7 +460,9 @@ export default {
 
             this.clearForm()
             this.clearErrors()
+            this.$emit('new_patient', data.patient)
             this.$emit('close')
+            
         })
         .catch((error) => {
             this.catchError(error)
