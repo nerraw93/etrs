@@ -28,6 +28,11 @@ class ClientService extends Model
         'service',
     ];
 
+    public function getPriceAttribute($value)
+    {
+        return floatval($value);
+    }
+
 
     /**
      * Relationships

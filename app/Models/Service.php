@@ -21,6 +21,10 @@ class Service extends Model
         'default_cost'
     ];
 
+    public function getNameAttribute($name) {
+        return ucwords($name);
+    }
+
     /**
      * Get services of client
      *
