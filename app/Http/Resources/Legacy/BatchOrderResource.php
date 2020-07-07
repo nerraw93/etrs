@@ -34,8 +34,8 @@ class BatchOrderResource extends JsonResource
             $clientService = $batchOrderService->service;
             array_push($tests, [
                 "id" => $batchOrderService->service->id,
-                "code" => $clientService->service->code,
-                "name" => $clientService->service->name,
+                "code" => $clientService->code,
+                "name" => $clientService->name,
                 "cost" => $clientService->price,
             ]);
         }

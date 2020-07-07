@@ -23,7 +23,7 @@ class IndexController extends Controller
                     })->withCount([
                         'services',
                         'orders',
-                    ])->orderBy('created_at', 'ASC')->paginate($request->count);
+                    ])->orderBy('created_at', 'DESC')->paginate($request->count);
         return success_data(compact('batches'));
     }
 

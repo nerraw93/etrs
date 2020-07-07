@@ -41,6 +41,10 @@ export default {
         sourceId: {
             type: Number,
             required: true,
+        },
+        client: {
+            type: String,
+            required: true,
         }
     },
 
@@ -79,6 +83,7 @@ export default {
             this.$store.dispatch('clientServices/store', {
                 services: this.services,
                 sourceId: this.sourceId,
+                clientId: this.client,
             })
               .then((data) => {
                   this.successToast(data.message)

@@ -85,11 +85,11 @@ class ServicesController extends Controller
         return successful(trans('message.admin.client.service.success.destroy'));
     }
 
-    public function import($id)
+    public function import($id, $sourceId)
     {
-        Excel::import(new ClientServicesImport, request()->file('file'));
+        Excel::import(new ClientServicesImport($sourceId), request()->file('file'));
 
-        $services = ClientSourceService::where('user_id', get_user_id($id))->has('service')->paginate(30);
+        $services = ClientSourceService::where('user_id', substr(get_user_id($id), 8))->has('service')->paginate(30);
         return successful(trans('message.admin.service.success.import'), [
             'services' => $services,
         ]);

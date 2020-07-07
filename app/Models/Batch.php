@@ -73,7 +73,7 @@ class Batch extends Model
      */
     public function scopeFilterStatus($query, $status)
     {
-        return $query->where('status', $status)->orderBy('created_at', 'asc');
+        return $query->where('status', $status)->orderBy('created_at', 'desc');
     }
 
     /**

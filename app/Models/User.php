@@ -240,7 +240,7 @@ class User extends Authenticatable
      */
     public function services()
     {
-        return $this->hasManyThrough(Service::class, ClientService::class, 'user_id', 'id', 'id', 'service_id');
+        return $this->hasManyThrough(Service::class, ClientSourceService::class, 'user_id', 'id', 'id', 'service_id');
     }
 
     /**

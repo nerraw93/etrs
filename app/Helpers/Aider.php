@@ -194,9 +194,9 @@ class Aider
         $batch = Batch::with(['orders' => function ($query) {
             $query->whereNotIn('status', [1]);
         }])->find($batchId);
-        $path = $batch->pdf_path;
+        //$path = $batch->pdf_path;
 
-        if (!$path || !file_exists($path)) {
+        //if (!$path || !file_exists($path)) {
             $pdf_name = $batch->code . '_' . Str::random(10);
             $path = 'reports/' . $pdf_name . '.pdf';
             $barcode = DNS1D::getBarcodePNGPath($batch->id, "C128");
@@ -206,7 +206,7 @@ class Aider
             $batch->save();
             $pdf = PDF::loadView('pdf.batch_report', compact('batch', 'barcode'))
                 ->save(public_path($path));
-        }
+        //}
 
         return $path;
     }

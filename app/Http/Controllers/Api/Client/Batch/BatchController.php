@@ -23,7 +23,7 @@ class BatchController extends Controller
                         return $query->filterStatus($request->status);
                     })->when($request->filled('search'), function($query) use ($request) {
                         return $query->findById($request->search);
-                    })->orderBy('created_at', 'ASC')->paginate($request->count);
+                    })->orderBy('created_at', 'DESC')->paginate($request->count);
         return success_data(compact('batches'));
     }
 

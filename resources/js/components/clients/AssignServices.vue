@@ -116,7 +116,8 @@ export default {
         open: {
             type: Boolean,
             required: true
-        }
+        },
+        sourceId: Number,
     },
 
     watch: {
@@ -217,7 +218,7 @@ export default {
                 if (this.page > 1) {
                     path = `/api/admin/services?page=${this.page}&clientId=${clientId}`;
                 } else {
-                    path = `/api/admin/services?clientId=${clientId}`;
+                    path = `/api/admin/services?clientId=${clientId}&source=${this.sourceId}`;
                 }
             }
 
@@ -283,7 +284,7 @@ export default {
             let formData = new FormData();
             formData.append('file', this.file)
             try {
-                await axios.post(`/api/admin/client/${this.clientId}/services/import`, formData)
+                await axios.post(`/api/admin/client/${this.clientId}/${this.sourceId}/services/import`, formData)
                 this.$toast.open({
                     message: 'Import successful',
                     type: 'is-success'

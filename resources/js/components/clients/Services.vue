@@ -61,6 +61,7 @@
         </b-button>
 
         <AssignServices :open="openAssignModal"
+            :sourceId="source"
             @add="openAddServiceModal"
             @import="fetch"
             @close="openAssignModal = false"/>
@@ -77,6 +78,7 @@
         <addservicemodal :open="isShowAddServiceModal"
             @close="closeAddServiceModal"
             :sourceId="source"
+            :client="clientId"
             :services="choosenServicesData" />
     </div>
 </template>
@@ -159,6 +161,7 @@ export default {
             deleteModalData: {},
             isShowAddServiceModal: false,
             choosenServicesData: [],
+            clientId: '',
         }
     },
 
@@ -227,13 +230,13 @@ export default {
         {
             let url = window.location.pathname.split("/");
             let clientId = url[url.length - 1];
+            this.clientId = clientId
             if (path) {
                 path = path.split(/(?=\/api)/)[1]; // temporary fix due to poor engineering of pagination!!
             }
 
             this.$store.dispatch('clientServices/fetch', {id: clientId, sourceId: this.source, path})
               .then((data) => {
-
               })
               .catch((error) => {
                   this.catchError(error);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Admin\Service;
 use Hash;
 use App\Models\Service;
 use App\Models\ClientService;
+use App\Models\ClientSourceService;
 use App\Imports\ServicesImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -26,19 +27,20 @@ class IndexController extends Controller
             $userId = get_user_id($request->clientId);
             // Get all clientServices service id
             $servicesId = [];
-            $clientServices = ClientService::select('service_id')
+            $clientServices = ClientSourceService::select('service_id')
                 ->where('user_id', $userId)
+                ->where('source_id', $request->source)
                 ->withOut('service')
                 ->get()
                 ->toArray();
 
-            foreach ($clientServices as $service) {
+                foreach ($clientServices as $service) {
                 if (!in_array($service['service_id'], $servicesId)) {
                     array_push($servicesId, $service['service_id']);
                 }
             }
 
-            $services = $services->whereIn('id', $servicesId);
+            $services = $services->whereNotIn('id', $servicesId);
         }
         $services = $services->paginate(10);
 

@@ -80,7 +80,7 @@ class IndexController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        $client = User::findOrFail($request->id);
+        $client = User::findOrFail(substr($request->id, 8));
         $name = $client->first_name . ' ' . $client->last_name;
         $client->email = $request->email;
         $client->username = $request->username;
@@ -101,7 +101,7 @@ class IndexController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $client = User::findOrFail($id);
+        $client = User::findOrFail(substr($id, 8));
         $client->delete();
         return successful(trans('message.admin.client.success.destroy'));
     }
@@ -129,6 +129,7 @@ class IndexController extends Controller
     public function details($code)
     {
         $client = User::client()->with(['dispatcher', 'services'])->where('code', $code)->firstOrFail();
+
         return success_data(compact('client'));
     }
 
@@ -157,7 +158,7 @@ class IndexController extends Controller
      */
     public function updateDispatcher(UpdateDispatcherModeRequest $request, $code = null)
     {
-        $client = User::findOrFail($request->id);
+        $client = User::findOrFail(substr($request->id, 8));
         $client->dispatcher_id = $request->dispatcher_id;
         $client->save();
 

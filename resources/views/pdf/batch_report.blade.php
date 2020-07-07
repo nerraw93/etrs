@@ -20,9 +20,13 @@
                     <strong>DATE:</strong>
                     {{date("M. d, Y h:i A", strtotime($batch->created_at))}}
                 </td>
+            </tr>
+            <tr>
+                <td class="has-text-left">
+                </td>
                 <td class="has-text-right">
                     <strong>SOURCE:</strong>
-                    {{$batch->source->name}}
+                    {{optional($batch->source)->name}}
                 </td>
             </tr>
         </table>
@@ -52,12 +56,20 @@
                 @endforeach
                 <tr>
                     <td class="has-text-left">{{$order->id}}</td>
-                    <td class="has-text-left">{{$order->patient->first_name . ' ' . $order->patient->last_name}}</td>
+                    <td class="has-text-left">{{optional($order->patient)->first_name . ' ' . optional($order->patient)->last_name}}</td>
                     <td class="has-text-left">{{$batch->payment_mode == 1 ? 'Charge' : 'Cash'}}</td>
-                    <td class="has-text-left">{{$order->patient->gender}}</td>
-                    <td class="has-text-left">{{date('m/d/Y', strtotime($order->patient->birth_date))}}</td>
+                    <td class="has-text-left">{{optional($order->patient)->gender}}</td>
+                    <td class="has-text-left">{{$order->patient ? date('m/d/Y', strtotime($order->patient->birth_date)) : ''}}</td>
                     <td class="has-text-left">{{number_format($total_cost, 2, '.', ',')}}</td>
                 </tr>
+
+                @foreach ($order->services as $order_service)
+                    <tr>
+                        <td class="has-text-left"><strong>Tests</strong></td>
+                        <td class="has-text-left">{{ optional($order_service->service)->name }}</td>
+                        <td class="has-text-left"><strong>OR/PR No.</strong></td>
+                    </tr>
+                @endforeach
 
                 <?php $grand_total += $total_cost; ?>
             @endforeach
@@ -67,9 +79,15 @@
         <h4 class="column has-text-left mb-lg"><strong>BREAKDOWN:</strong></h4>
         <table class="is-full column">
             <tr>
-                <td class="has-text-left" width="250">TOTAL ORDER COUNT: <strong style="font-size:14px">{{ count($batch->orders) }}</strong></td>
+                <td class="has-text-left" width="250">TOTAL ORDER COUNT: <strong style="font-size:18px">{{ count($batch->orders) }}</strong></td>
                 <td class="has-text-left">Slides: {{$batch->slides}}</td>
-                <td class="has-text-right"><strong style="font-size:16px">Grand Total: <span>P</span> {{number_format($grand_total, 2, '.', ',')}}</strong></td>
+                <td class="has-text-right">
+                    <strong style="font-size:20px">
+                        Grand Total: 
+                        <br>
+                        P {{number_format($grand_total, 2, '.', ',')}}
+                    </strong>
+                </td>
             </tr>
             <tr>
                 <td class="has-text-left">Encoded by: {{$batch->encoded_by}}</td>

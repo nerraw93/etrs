@@ -79,6 +79,7 @@ export default {
                     .then(({data}) => {
                         commit('fill', data.services);
                         commit('saveClientId', id);
+                        alert(state.clientId)
                         resolve(data);
                     })
                     .catch(error => {
@@ -116,7 +117,7 @@ export default {
          * @param  {[type]} data
          * @return {[type]}
          */
-        store({commit, dispatch, state}, {services, sourceId})
+        store({commit, dispatch, state}, {services, sourceId, clientId})
         {
             // Get service_id and price!
             let servicesData = [];
@@ -125,8 +126,8 @@ export default {
             }
 
             return new Promise((resolve, reject) => {
-                http.postJSON(`/api/admin/client/${state.clientId}/${sourceId}/services/store`, {
-                    user_id: state.clientId,
+                http.postJSON(`/api/admin/client/${clientId}/${sourceId}/services/store`, {
+                    user_id: clientId,
                     services: servicesData,
                     source_id: sourceId,
                 })
@@ -150,7 +151,7 @@ export default {
             return new Promise((resolve, reject) => {
                 http.postJSON(`/api/admin/client/${state.clientId}/${service.source_id}/services/${service.id}/destroy`)
                     .then(({data}) => {
-                        dispatch('fetch', {id: state.clientId});
+                        dispatch('fetch', {id: state.clientId, sourceId: service.source_id});
                         resolve(data);
                     })
                     .catch(error => {
