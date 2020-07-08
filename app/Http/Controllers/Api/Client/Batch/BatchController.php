@@ -19,7 +19,9 @@ class BatchController extends Controller
     public function index(Request $request)
     {
         $batches = Batch::owned()
-                    ->when($request->filled('status'), function($query) use ($request) {
+                    ->when($request->filled('status') && $request->status == "3", function($query) {
+                        return $query;
+                    })->when($request->filled('status') && $request->status != "3", function($query) use ($request) {
                         return $query->filterStatus($request->status);
                     })->when($request->filled('search'), function($query) use ($request) {
                         return $query->findById($request->search);

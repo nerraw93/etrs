@@ -3,7 +3,7 @@
     <div class="header-portlet">
       <h1 class="float-left">
         <b-icon icon="stethoscope" />
-        BATCH ORDERS
+        BATCH ORDERSsss
       </h1>
       <div class="tabs float-right">
         <div class="column pt-0">
@@ -252,6 +252,7 @@ export default {
                 { "value": "", "label": "All results" },
             ],
             statuses: [
+                { "value": 3, "label": "All" },
                 { "value": '0', "label": "Draft" },
                 { "value": 1, "label": "Confirmed" },
                 { "value": 2, "label": "Accomplished" },
