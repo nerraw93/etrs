@@ -3,7 +3,7 @@
     <div class="header-portlet">
       <h1 class="float-left">
         <b-icon icon="stethoscope" />
-        BATCH ORDERSsss
+        BATCH ORDERS
       </h1>
       <div class="tabs float-right">
         <div class="column pt-0">
