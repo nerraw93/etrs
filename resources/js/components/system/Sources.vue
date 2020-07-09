@@ -1,32 +1,47 @@
 <template>
   <section class="source">
     <div class="column portlet">
-      <div class="header-portlet">
-        <h2 class="float-left">
+      <div class="header-portlet columns is-multiline is-mobile">
+        <h2 class="column is-full">
           SOURCES
         </h2>
-        <div class="mini-form float-right">
-          <form @submit.prevent="add">
-            <b-field grouped>
-              <b-input
-                v-model="storeData.code"
-                placeholder="Code"
-                size="is-small"
-              />
-              <b-input
-                v-model="storeData.name"
-                placeholder="Name"
-                size="is-small"
-              />
-              <b-button
-                size="is-small"
-                tag="input"
-                type="app-primary"
-                native-type="submit"
-                value="Add"
-              />
-            </b-field>
-          </form>
+        <div class="column is-full">
+          <div class="float-left">
+            <form @submit.prevent="search">
+              <b-field grouped>
+                <b-input
+                  v-model="searchQuery"
+                  placeholder="Search Sources..."
+                />
+                <b-button
+                  tag="input"
+                  type="app-primary"
+                  native-type="submit"
+                  value="Search"
+                />
+              </b-field>
+            </form>
+          </div>
+          <div class="float-right">
+            <form @submit.prevent="add">
+                <b-field grouped>
+                  <b-input
+                    v-model="storeData.code"
+                    placeholder="Code"
+                  />
+                  <b-input
+                    v-model="storeData.name"
+                    placeholder="Name"
+                  />
+                  <b-button
+                    tag="input"
+                    type="app-primary"
+                    native-type="submit"
+                    value="Add"
+                  />
+                </b-field>
+            </form>
+          </div>
         </div>
       </div>
       <p v-if="sources.length === 0" class="text-center pt-5 pr-5 pl-5 pb-5">No data available.</p>
@@ -145,6 +160,7 @@ export default {
       return {
           isEdit: false,
           sourceId: '',
+          searchQuery: '',
           code: '',
           name: '',
           editData: {},
@@ -223,7 +239,7 @@ export default {
       {
         const payload = {
           page: this.page,
-        }
+        };
 
         this.$store.dispatch('sources/fetch', {payload: payload})
           .then(({data}) => {
@@ -231,6 +247,16 @@ export default {
           .catch((err) => {
 
           });
+      },
+      search() {
+        const payload = {
+          page: this.page,
+          query: this.searchQuery,
+        };
+
+        this.$store.dispatch('sources/search', payload)
+          .then(({data}) => {})
+          .catch((err) => {});
       },
       async next() {
         this.page++

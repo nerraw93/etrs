@@ -128,6 +128,34 @@ export default {
                     });
             });
         },
+
+        /**
+         * Search sources
+         *
+         * @param  {Function} commit                        the commit method to use
+         * @param  {Object} [payload={}]                    the payload
+         * @return {Promise}
+         * @author {ned}
+         */
+        search({commit}, {page = 1, query = ''})
+        {
+            return new Promise((resolve, reject) => {
+                let url = `/api/admin/system/source/search/${query}`
+                if (page > 1) {
+                    url += `?page=${page}`
+                }
+                
+                http.getJSON(url)
+                    .then(({data}) => {
+                        let {sources} = data;
+                        commit('fill', sources);
+                        resolve(data);
+                    })
+                    .catch(error => {
+                        reject(error);
+                    });
+            });
+        }
     },
 
     /**

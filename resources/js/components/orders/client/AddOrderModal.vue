@@ -413,11 +413,11 @@ export default {
             this.$store.dispatch('clientServicesList/fetch')
                 .then((data) => {
                     let list = data.services
-                    console.log(list)
+
                     if (key == '') {
                         this.tests = list
                     } else {
-                      this.tests = list.filter( data => (data.name.toUpperCase().indexOf(key.toUpperCase()) > -1))
+                        this.tests = list.filter( data => (data.name.toUpperCase().indexOf(key.toUpperCase()) > -1))
                     }
                     this.removeTestsFromList()
                 });
