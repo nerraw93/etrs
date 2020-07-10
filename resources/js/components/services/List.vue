@@ -10,7 +10,7 @@
                     -- Show All --
                 </option>
                 <option v-for="option in options"
-                    :key="option.id":value="option.code">
+                    :key="option.id" :value="option.code">
                     {{ option.full_name }}
                 </option>
             </b-select>

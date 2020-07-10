@@ -22,7 +22,7 @@ class Service extends Model
     ];
 
     public function getNameAttribute($name) {
-        return ucwords($name);
+        return ucwords(strtolower($name));
     }
 
     /**

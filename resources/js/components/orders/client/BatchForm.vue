@@ -123,7 +123,7 @@
                 </b-select>
               </b-field>
             </div>
-            <div class="column is-half">
+            <!-- <div class="column is-half">
               <b-field
                 label="Tag Mode"
                 :type="{'is-danger': errors.has('password')}"
@@ -137,7 +137,7 @@
                   placeholder="Enter tag"
                 />
               </b-field>
-            </div>
+            </div> -->
           </div>
           <div class="column mb-5">
             <div class="columns">
