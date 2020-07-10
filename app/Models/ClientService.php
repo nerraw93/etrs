@@ -33,7 +33,6 @@ class ClientService extends Model
         return floatval($value);
     }
 
-
     /**
      * Relationships
      */

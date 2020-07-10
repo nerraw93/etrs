@@ -66,7 +66,7 @@
                 @foreach ($order->services as $order_service)
                     <tr>
                         <td class="has-text-left"><strong>Tests</strong></td>
-                        <td class="has-text-left">{{ optional($order_service->service)->name }}</td>
+                        <td class="has-text-left">{{ $order_service->service->service->name ?? '' }}</td>
                         <td class="has-text-left"><strong>OR/PR No.</strong></td>
                     </tr>
                 @endforeach

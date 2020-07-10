@@ -38,6 +38,7 @@
         "moment": "^2.24.0",
         "pusher-js": "^5.0.0",
         "vee-validate": "^2.2.2",
+        "vue-bootstrap-typeahead": "^0.2.6",
         "vue-cookies": "^1.5.13",
         "vue-router": "^3.0.2",
         "vue-select": "^3.1.0",

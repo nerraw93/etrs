@@ -4,7 +4,6 @@
     :active.sync="open"
     :can-cancel="false"
   >
-          
     <form @submit.prevent="submit">
       <div class="column">
         <div class="columns">
@@ -462,7 +461,6 @@ export default {
             this.clearErrors()
             this.$emit('new_patient', data.patient)
             this.$emit('close')
-            
         })
         .catch((error) => {
             this.catchError(error)
