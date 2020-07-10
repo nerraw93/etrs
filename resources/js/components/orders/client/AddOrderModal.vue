@@ -417,7 +417,7 @@ export default {
                     if (key == '') {
                         this.tests = list
                     } else {
-                        this.tests = list.filter( data => (data.name.toUpperCase().indexOf(key.toUpperCase()) > -1))
+                        this.tests = list.filter( service => (service.name.toUpperCase().indexOf(key.toUpperCase()) > -1))
                     }
                     this.removeTestsFromList()
                 });
